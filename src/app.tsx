@@ -1,28 +1,27 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import { TokenProvider } from './contexts/TokenProvider'
 import { memoryUsedTokens } from './memoryUsedTokens'
 import { Login } from './pages/Login'
 import { NotFound } from './pages/NotFound'
 import { Rating } from './pages/Rating'
 import { Thanks } from './pages/Thanks'
-import { TokenRoutes } from './pages/TokenRoutes'
 
 export function App() {
   console.log({ memoryUsedTokens })
-
   return (
     <BrowserRouter>
-      {/* ... */}
-      <Routes>
-        <Route element={<TokenRoutes />}>
+      <TokenProvider>
+        {/* ... */}
+        <Routes>
           <Route path="/avaliacao/:token" element={<Rating />} />
           <Route path="thanks" element={<Thanks />} />
-        </Route>
 
-        <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TokenProvider>
     </BrowserRouter>
   )
 }

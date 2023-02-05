@@ -9,7 +9,7 @@ export function Thanks() {
       <button
         type="button"
         onClick={() => {
-          navigate('/avaliacao/seu-token-aqui')
+          navigate('/avaliacao/seu-token-usado-aqui')
         }}
       >
         Tentar usar token novamente
