@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
 
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { useToken } from '../hooks/useToken'
 
 export function Rating() {
   const { token } = useParams()
-  const navigate = useNavigate()
   const { isLoading, validateToken, updateTokenAsUsed } = useToken()
 
   const handleUpdateTokenAsUsed = async () => {
